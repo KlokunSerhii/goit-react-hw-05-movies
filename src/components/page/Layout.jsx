@@ -1,26 +1,28 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { BsBadge8KFill } from 'react-icons/bs';
 import { Outlet } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { StyledLink, Svg } from './Layout.styled';
 
 const Layout = () => {
-  <>
-    {' '}
-    <Navbar bg="dark" variant="dark">
-      <Container>
-        <Navbar.Brand href="#home">
-          <BsBadge8KFill />
-        </Navbar.Brand>
-        <Nav className="me-auto">
-          <Nav.Link to="/">Home</Nav.Link>
-          <Nav.Link to="movies">Movies</Nav.Link>
-          <Nav.Link href="movies/:movieId">Movie</Nav.Link>
-        </Nav>
-      </Container>
-    </Navbar>
-    <Outlet />
-  </>;
+  return (
+    <div>
+      <Navbar bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand>
+            <Svg />
+          </Navbar.Brand>
+
+          <Nav className="me-auhref">
+            <StyledLink to="/">Home</StyledLink>
+            <StyledLink to="movies">Movies</StyledLink>
+            <StyledLink to="movies/:movieId">Movie</StyledLink>
+          </Nav>
+        </Container>
+      </Navbar>
+      <Outlet />
+    </div>
+  );
 };
 export default Layout;
