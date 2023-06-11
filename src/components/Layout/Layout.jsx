@@ -3,25 +3,26 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Outlet } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { StyledLink, Svg } from './Layout.styled';
+import { StyledLink, Svg, Main } from './Layout.styled';
 
 const Layout = () => {
   return (
     <div>
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand>
+          <StyledLink className="navbar-brand" to="/">
             <Svg />
-          </Navbar.Brand>
+          </StyledLink>
 
           <Nav className="me-auhref">
             <StyledLink to="/">Home</StyledLink>
             <StyledLink to="movies">Movies</StyledLink>
-            <StyledLink to="movies/:movieId">Movie</StyledLink>
           </Nav>
         </Container>
       </Navbar>
-      <Outlet />
+      <Main>
+        <Outlet />
+      </Main>
     </div>
   );
 };

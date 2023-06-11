@@ -19,3 +19,6 @@ export const Svg = styled(BsBadge8KFill)`
   width: 35px;
   height: 35px;
 `;
+export const Main = styled.main`
+  text-align: center;
+`;
