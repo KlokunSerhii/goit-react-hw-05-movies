@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
-import ApiServices from 'services/api';
+import { Link, Outlet, useParams } from 'react-router-dom';
+import { fetchMoviId } from 'services/api';
 import { Container, Img, Items } from './MovieDetails.styled';
+
 function MovieDetails() {
   const [data, setData] = useState({});
+  const { movieId } = useParams();
 
   useEffect(() => {
-    const Api = new ApiServices();
-    Api.fetchMoviId(385687).then(data => setData(data));
-  }, []);
+    fetchMoviId(movieId).then(data => setData(data));
+  }, [movieId]);
 
   return (
     <>

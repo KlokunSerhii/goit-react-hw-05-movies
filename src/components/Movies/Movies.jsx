@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { BsArrowRightCircleFill } from 'react-icons/bs';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ApiServices from 'services/api';
+import { fetchSearch } from 'services/api';
 import { Ul, Label, Input, Submit, Container } from './Movies.styled';
 import { Link } from 'react-router-dom';
 
@@ -14,8 +14,7 @@ function Movies() {
   const [totalPages, setTotalPages] = useState('');
 
   useEffect(() => {
-    const Api = new ApiServices();
-    Api.fetchSearch(query, page).then(({ results, total_pages }) => {
+    fetchSearch(query, page).then(({ results, total_pages }) => {
       setResults(preResults => [...preResults, ...results]);
       setTotalPages(total_pages);
     });
@@ -61,7 +60,7 @@ function Movies() {
               }}
             >
               <Card.Title>{title}</Card.Title>
-              <Link to=":movieId">
+              <Link to={`${id}`}>
                 <Button variant="primary">Movie Details</Button>
               </Link>
             </Card.Body>

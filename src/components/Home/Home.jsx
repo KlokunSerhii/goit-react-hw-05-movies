@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ApiServices from 'services/api';
+import { fetchTrending } from 'services/api';
 import { Ul, Title, Container } from './Home.styled';
 import { Link } from 'react-router-dom';
 
@@ -10,8 +10,7 @@ function Home() {
   const [results, setResults] = useState([]);
 
   useEffect(() => {
-    const Api = new ApiServices();
-    Api.fetchTrending().then(({ results }) => {
+    fetchTrending().then(({ results }) => {
       setResults(preResults => [...preResults, ...results]);
     });
   }, []);
@@ -38,7 +37,7 @@ function Home() {
               }}
             >
               <Card.Title>{title}</Card.Title>
-              <Link to="movies/:movieId">
+              <Link to={`movies/${id}`}>
                 <Button variant="primary">Movie Details</Button>
               </Link>
             </Card.Body>

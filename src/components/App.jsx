@@ -2,8 +2,8 @@ import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import HomePage from '../page/HomePage';
 import MoviesPage from '../page/MoviesPage';
-import MovieDetails from '../page/MovieDetails';
-import Cast from './Cast';
+import MovieDetails from './MovieDetails/MovieDetails';
+import Cast from './Cast/Cast';
 import Reviews from './Reviews';
 
 export const App = () => {
