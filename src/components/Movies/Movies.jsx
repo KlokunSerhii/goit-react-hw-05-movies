@@ -5,25 +5,28 @@ import { BsArrowRightCircleFill } from 'react-icons/bs';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { fetchSearch } from 'services/api';
 import { Ul, Label, Input, Submit, Container } from './Movies.styled';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 function Movies() {
   const [results, setResults] = useState([]);
-  const [query, setQuery] = useState('');
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
-    fetchSearch(query, page).then(({ results, total_pages }) => {
-      setResults(preResults => [...preResults, ...results]);
-      setTotalPages(total_pages);
-    });
-  }, [query, page]);
+    if (!searchParams.get('query')) return;
+    fetchSearch(searchParams.get('query'), page).then(
+      ({ results, total_pages }) => {
+        setResults(preResults => [...preResults, ...results]);
+        setTotalPages(total_pages);
+      }
+    );
+  }, [searchParams, page]);
 
   const handlerSubmit = e => {
-    e.preventDefault();
     const form = e.currentTarget;
-    setQuery(form.elements.input.value);
+    e.preventDefault();
+    setSearchParams({ query: form.elements.input.value });
     setResults([]);
   };
   const onClick = () => {
