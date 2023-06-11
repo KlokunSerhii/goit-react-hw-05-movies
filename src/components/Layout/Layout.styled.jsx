@@ -20,5 +20,7 @@ export const Svg = styled(BsBadge8KFill)`
   height: 35px;
 `;
 export const Main = styled.main`
+  height: 100vh;
+  background-color: #0f0f0f;
   text-align: center;
 `;

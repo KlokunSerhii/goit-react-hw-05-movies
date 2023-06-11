@@ -31,3 +31,11 @@ export const fetchCredits = id => {
     .then(({ data }) => data);
   return response;
 };
+export const fetchReviews = id => {
+  const response = axios
+    .get(
+      `${BASE_URL}movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`
+    )
+    .then(({ data }) => data);
+  return response;
+};

@@ -6,7 +6,3 @@ export const List = styled.ul`
   flex-direction: row;
   gap: 10px;
 `;
-export const ListItem = styled.li``;
-export const Img = styled.img`
-  width: 150px;
-`;

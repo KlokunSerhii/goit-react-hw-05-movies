@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import { fetchMoviId } from 'services/api';
 import { Container, Img, Items } from './MovieDetails.styled';
+import { Nav, Navbar } from 'react-bootstrap';
+import { StyledLink } from 'components/Layout/Layout.styled';
 
 function MovieDetails() {
   const [data, setData] = useState({});
@@ -24,24 +26,31 @@ function MovieDetails() {
           loading="lazy"
         />
         <Items>
-          <h1 className="modal__title">{data.title}</h1>
-          <p className="modal__popularity">
+          <h1>{data.title}</h1>
+          <p>
             Popularity <span>{data.popularity}</span>
           </p>
 
-          <p className="modal__about">ABOUT</p>
-          <p className="modal__description">{data.overview}</p>
+          <p>ABOUT</p>
+          <p>{data.overview}</p>
         </Items>
       </Container>
 
-      <ul>
-        <li>
-          <Link to="cast">Cast</Link>
-        </li>
-        <li>
-          <Link to="reviews">Reviews</Link>
-        </li>
-      </ul>
+      <Navbar
+        bg="dark"
+        variant="dark"
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
+        <div>
+          <Nav className="me-auhref">
+            <StyledLink to="cast">Cast</StyledLink>
+            <StyledLink to="reviews">Reviews</StyledLink>
+          </Nav>
+        </div>
+      </Navbar>
       <Outlet />
     </>
   );
