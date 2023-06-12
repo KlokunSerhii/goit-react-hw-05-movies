@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, Suspense } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Outlet, useParams,useLocation, Link } from 'react-router-dom';
 import { fetchMoviId } from 'services/api';
 import { Container, Img, Items,BackLink } from './MovieDetails.styled';
@@ -60,9 +60,7 @@ function MovieDetailsPage() {
           </Nav>
         </div>
       </Navbar>
-      <Suspense fallback={<div>Loading...</div>}> 
            <Outlet /> 
-      </Suspense>
       
     </>
   );
