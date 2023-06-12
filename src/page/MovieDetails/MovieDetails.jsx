@@ -1,17 +1,16 @@
 import { useEffect, useState, useRef } from 'react';
-import { Outlet, useParams,useLocation, Link } from 'react-router-dom';
+import { Outlet, useParams, useLocation, Link } from 'react-router-dom';
 import { fetchMoviId } from 'services/api';
-import { Container, Img, Items,BackLink } from './MovieDetails.styled';
+import { Container, Img, Items, BackLink } from './MovieDetails.styled';
 import { Nav, Navbar } from 'react-bootstrap';
 import { StyledLink } from 'components/Layout/Layout.styled';
+import { UrlImg } from '../../components/utils/UrlImg';
 
 function MovieDetailsPage() {
   const [data, setData] = useState({});
   const { movieId } = useParams();
   const location = useLocation();
-  const backLinkHref = useRef(location.state?.from ?? "/");
-
-
+  const backLinkHref = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
     fetchMoviId(movieId).then(data => setData(data));
@@ -19,18 +18,12 @@ function MovieDetailsPage() {
 
   return (
     <>
-    <BackLink>
-      <Link to={backLinkHref.current}>Back</Link>
+      <BackLink>
+        <Link to={backLinkHref.current}>Back</Link>
       </BackLink>
-      
-      
       <Container>
         <Img
-          src={
-            data.poster_path
-              ? `https://image.tmdb.org/t/p/w500/${data.poster_path}`
-              : 'https://via.placeholder.com/395x574?text=No+Image'
-          }
+          src={UrlImg(data.poster_path)}
           alt={data.original_name}
           loading="lazy"
         />
@@ -60,8 +53,7 @@ function MovieDetailsPage() {
           </Nav>
         </div>
       </Navbar>
-           <Outlet /> 
-      
+      <Outlet />
     </>
   );
 }
