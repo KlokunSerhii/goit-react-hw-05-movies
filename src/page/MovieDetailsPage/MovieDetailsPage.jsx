@@ -5,7 +5,7 @@ import { Container, Img, Items,BackLink } from './MovieDetails.styled';
 import { Nav, Navbar } from 'react-bootstrap';
 import { StyledLink } from 'components/Layout/Layout.styled';
 
-function MovieDetails() {
+function MovieDetailsPage() {
   const [data, setData] = useState({});
   const { movieId } = useParams();
   const location = useLocation();
@@ -68,4 +68,4 @@ function MovieDetails() {
   );
 }
 
-export default MovieDetails;
+export default MovieDetailsPage;

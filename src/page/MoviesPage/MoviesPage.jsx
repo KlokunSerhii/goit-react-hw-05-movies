@@ -7,13 +7,12 @@ import { fetchSearch } from 'services/api';
 import { Ul, Label, Input, Submit, Container } from './Movies.styled';
 import { Link, useSearchParams, useLocation } from 'react-router-dom';
 
-function Movies() {
+function MoviesPage() {
   const [results, setResults] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation()
-
 
   useEffect(() => {
     if (!searchParams.get('query')) return;
@@ -34,6 +33,7 @@ function Movies() {
   const onClick = () => {
     setPage(prevPage => prevPage + 1);
   };
+
 
   return (
     <Container>
@@ -77,4 +77,4 @@ function Movies() {
   );
 }
 
-export default Movies;
+export default MoviesPage;

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { fetchReviews } from '../../services/api';
 import { useParams } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
-import { Container } from 'components/Home/Home.styled';
+import { Container } from '../../page/HomePage/Home.styled';
 
 function Reviews() {
   const [reviews, setReviews] = useState([]);

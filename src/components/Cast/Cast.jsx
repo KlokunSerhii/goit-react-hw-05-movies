@@ -3,7 +3,7 @@ import { fetchCredits } from '../../services/api';
 import { useParams } from 'react-router-dom';
 import { List } from './Cast.staled';
 import Card from 'react-bootstrap/Card';
-import { Container } from 'components/Home/Home.styled';
+import { Container } from '../../page/HomePage/Home.styled';
 
 function Cast() {
   const [casts, setCasts] = useState([]);

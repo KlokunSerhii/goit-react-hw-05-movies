@@ -3,10 +3,12 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { fetchTrending } from 'services/api';
-import { Ul } from './Home.styled';
 import { Link,useLocation } from 'react-router-dom';
 
-function Home() {
+
+import { Container, Title,Ul } from './Home.styled';
+function HomePage() {
+
   const [results, setResults] = useState([]);
   const location = useLocation()
   useEffect(() => {
@@ -16,7 +18,9 @@ function Home() {
   }, []);
 
   return (
-    <Ul>
+    <Container>
+      <Title>The most popular movies today</Title>
+       <Ul>
       {results.map(({ title, poster_path, id }) => (
         <Card style={{ width: '15rem' }} key={id}>
           <Card.Img
@@ -42,7 +46,8 @@ function Home() {
         </Card>
       ))}
     </Ul>
+    </Container>
   );
 }
 
-export default Home;
+export default HomePage;
