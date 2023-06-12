@@ -37,6 +37,6 @@ Gallery.propTypes = {
       id: PropTypes.number.isRequired,
     })
   ),
-  location: PropTypes.string.isRequired,
+  location: PropTypes.object.isRequired,
 };
 export default Gallery;
