@@ -5,6 +5,7 @@ import { Container, Img, Items, BackLink } from './MovieDetails.styled';
 import { Nav, Navbar } from 'react-bootstrap';
 import { StyledLink } from 'components/Layout/Layout.styled';
 import { UrlImg } from '../../utils/UrlImg';
+import { BsEraser } from 'react-icons/bs';
 
 function MovieDetailsPage() {
   const [data, setData] = useState({});
@@ -15,7 +16,7 @@ function MovieDetailsPage() {
   useEffect(() => {
     gerMoviById(movieId)
       .then(data => setData(data))
-      .catch(console.log('Error'));
+      .catch(<BsEraser />);
   }, [movieId]);
 
   return (

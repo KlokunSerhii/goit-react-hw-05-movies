@@ -5,6 +5,7 @@ import { Ul, Container } from './Home/Home.styled';
 import { useSearchParams, useLocation } from 'react-router-dom';
 import Gallery from 'components/Gallery';
 import Form from 'components/Form';
+import { BsEraser } from 'react-icons/bs';
 
 function MoviesPage() {
   const [results, setResults] = useState([]);
@@ -20,7 +21,7 @@ function MoviesPage() {
         setResults(preResults => [...preResults, ...results]);
         setTotalPages(total_pages);
       })
-      .catch(console.log('Error'));
+      .catch(<BsEraser />);
   }, [searchParams, page]);
 
   const onSubmit = form => {

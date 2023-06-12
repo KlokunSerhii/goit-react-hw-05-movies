@@ -3,6 +3,7 @@ import { fetchTrending } from 'services/api';
 import { useLocation } from 'react-router-dom';
 import { Container, Title, Ul } from './Home.styled';
 import Gallery from '../../components/Gallery/Gallery';
+import { BsEraser } from 'react-icons/bs';
 function HomePage() {
   const [results, setResults] = useState([]);
   const location = useLocation();
@@ -12,7 +13,7 @@ function HomePage() {
       .then(({ results }) => {
         setResults(preResults => [...preResults, ...results]);
       })
-      .catch(console.log('Error'));
+      .catch(<BsEraser />);
   }, []);
 
   return (
