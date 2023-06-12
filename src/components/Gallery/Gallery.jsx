@@ -3,6 +3,8 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { UrlImg } from 'components/utils/UrlImg';
+import PropTypes from 'prop-types';
+
 function Gallery({ results, location }) {
   return (
     <>
@@ -26,5 +28,15 @@ function Gallery({ results, location }) {
     </>
   );
 }
-//protoType
+
+Gallery.propTypes = {
+  results: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      poster_path: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
+    })
+  ),
+  location: PropTypes.string.isRequired,
+};
 export default Gallery;
