@@ -4,12 +4,12 @@ import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Outlet } from 'react-router-dom';
 import { StyledLink, Svg, Main } from './Layout.styled';
-// import {Spiner} from '../Spiner'
-// import { BallTriangle } from  'react-loader-spinner'
+import { Suspense } from 'react';
+import Loader from 'components/Loader/Loader';
 
 const Layout = () => {
   return (
-    <div>
+    <>
       <Navbar bg="dark" variant="dark">
         <Container>
           <StyledLink className="navbar-brand" to="/">
@@ -22,15 +22,13 @@ const Layout = () => {
           </Nav>
         </Container>
       </Navbar>
-            
+
       <Main>
-
-        <Outlet />
-
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
       </Main>
-      
-
-    </div>
+    </>
   );
 };
 export default Layout;

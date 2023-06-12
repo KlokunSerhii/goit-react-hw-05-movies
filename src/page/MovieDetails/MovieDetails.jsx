@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, Suspense } from 'react';
 import { Outlet, useParams, useLocation, Link } from 'react-router-dom';
 import { gerMoviById } from 'services/api';
 import { Container, Img, Items, BackLink } from './MovieDetails.styled';
@@ -6,6 +6,7 @@ import { Nav, Navbar } from 'react-bootstrap';
 import { StyledLink } from 'components/Layout/Layout.styled';
 import { UrlImg } from '../../utils/UrlImg';
 import { BsEraser } from 'react-icons/bs';
+import Loader from 'components/Loader/Loader';
 
 function MovieDetailsPage() {
   const [data, setData] = useState({});
@@ -56,7 +57,9 @@ function MovieDetailsPage() {
           </Nav>
         </div>
       </Navbar>
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </>
   );
 }
