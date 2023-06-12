@@ -4,7 +4,7 @@ import { gerMoviById } from 'services/api';
 import { Container, Img, Items, BackLink } from './MovieDetails.styled';
 import { Nav, Navbar } from 'react-bootstrap';
 import { StyledLink } from 'components/Layout/Layout.styled';
-import { UrlImg } from '../../utils/UrlImg';
+import { UrlImg, UrlBgImg } from '../../utils/UrlImg';
 import { BsEraser } from 'react-icons/bs';
 // import Loader from 'components/Loader/Loader';
 
@@ -19,7 +19,7 @@ function MovieDetailsPage() {
       .then(data => setData(data))
       .catch(<BsEraser />);
   }, [movieId]);
-  console.log(`url(${UrlImg(data.backdrop_path)})`);
+
   return (
     <>
       <BackLink>
@@ -27,7 +27,7 @@ function MovieDetailsPage() {
       </BackLink>
       <Container
         style={{
-          backgroundImage: `url(${UrlImg(data.backdrop_path)})`,
+          backgroundImage: `url(${UrlBgImg(data.backdrop_path)})`,
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
