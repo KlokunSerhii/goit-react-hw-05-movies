@@ -21,11 +21,13 @@ const Layout = () => {
           </Nav>
         </Container>
       </Navbar>
-      <Suspense fallback={<div>Loading...</div>}>      
+            
       <Main>
+      <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
+        </Suspense>
       </Main>
-      </Suspense>
+      
 
     </div>
   );
