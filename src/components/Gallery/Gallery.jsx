@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { UrlImg } from 'components/utils/UrlImg';
+import { UrlImg } from 'utils/UrlImg';
 import PropTypes from 'prop-types';
 
 function Gallery({ results, location }) {

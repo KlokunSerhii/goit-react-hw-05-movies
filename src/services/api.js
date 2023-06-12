@@ -18,14 +18,14 @@ export const fetchSearch = (query, page) => {
   return response;
 };
 
-export const fetchMoviId = id => {
+export const gerMoviById = id => {
   const response = axios
     .get(`${BASE_URL}movie/${id}?api_key=${API_KEY}&language=en-US`)
     .then(({ data }) => data);
   return response;
 };
 
-export const fetchCredits = id => {
+export const fetchCast = id => {
   const response = axios
     .get(`${BASE_URL}movie/${id}/credits?api_key=${API_KEY}&language=en-US`)
     .then(({ data }) => data);

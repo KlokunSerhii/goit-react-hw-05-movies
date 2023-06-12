@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { fetchCredits } from '../../services/api';
+import { fetchCast } from '../../services/api';
 import { useParams } from 'react-router-dom';
 import { List } from './Cast.staled';
 import Card from 'react-bootstrap/Card';
@@ -10,7 +10,7 @@ function Cast() {
   const { movieId } = useParams();
 
   useEffect(() => {
-    fetchCredits(movieId).then(({ cast }) => {
+    fetchCast(movieId).then(({ cast }) => {
       setCasts(cast);
     });
   }, [movieId]);

@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef } from 'react';
 import { Outlet, useParams, useLocation, Link } from 'react-router-dom';
-import { fetchMoviId } from 'services/api';
+import { gerMoviById } from 'services/api';
 import { Container, Img, Items, BackLink } from './MovieDetails.styled';
 import { Nav, Navbar } from 'react-bootstrap';
 import { StyledLink } from 'components/Layout/Layout.styled';
-import { UrlImg } from '../../components/utils/UrlImg';
+import { UrlImg } from '../../utils/UrlImg';
 
 function MovieDetailsPage() {
   const [data, setData] = useState({});
@@ -13,7 +13,7 @@ function MovieDetailsPage() {
   const backLinkHref = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
-    fetchMoviId(movieId).then(data => setData(data));
+    gerMoviById(movieId).then(data => setData(data));
   }, [movieId]);
 
   return (
