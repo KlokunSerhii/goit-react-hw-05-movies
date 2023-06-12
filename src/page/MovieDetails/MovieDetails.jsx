@@ -19,7 +19,7 @@ function MovieDetailsPage() {
       .then(data => setData(data))
       .catch(<BsEraser />);
   }, [movieId]);
-
+  console.log(UrlBgImg(data.backdrop_path));
   return (
     <>
       <BackLink>
