@@ -15,7 +15,7 @@ function MovieDetailsPage() {
   useEffect(() => {
     gerMoviById(movieId)
       .then(data => setData(data))
-      .catch(console.error(Error));
+      .catch(console.log('Error'));
   }, [movieId]);
 
   return (

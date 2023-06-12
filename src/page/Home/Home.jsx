@@ -8,9 +8,11 @@ function HomePage() {
   const location = useLocation();
 
   useEffect(() => {
-    fetchTrending().then(({ results }) => {
-      setResults(preResults => [...preResults, ...results]);
-    }).catch(console.error(Error))
+    fetchTrending()
+      .then(({ results }) => {
+        setResults(preResults => [...preResults, ...results]);
+      })
+      .catch(console.log('Error'));
   }, []);
 
   return (

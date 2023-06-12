@@ -20,7 +20,7 @@ function MoviesPage() {
         setResults(preResults => [...preResults, ...results]);
         setTotalPages(total_pages);
       })
-      .catch(console.error(Error));
+      .catch(console.log('Error'));
   }, [searchParams, page]);
 
   const onSubmit = form => {
