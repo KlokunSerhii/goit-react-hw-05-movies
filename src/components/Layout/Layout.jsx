@@ -1,8 +1,9 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Outlet } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
 import { StyledLink, Svg, Main } from './Layout.styled';
 
 const Layout = () => {
@@ -20,9 +21,12 @@ const Layout = () => {
           </Nav>
         </Container>
       </Navbar>
+      <Suspense fallback={<div>Loading...</div>}>      
       <Main>
         <Outlet />
       </Main>
+      </Suspense>
+
     </div>
   );
 };
