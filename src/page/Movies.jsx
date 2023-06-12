@@ -15,12 +15,12 @@ function MoviesPage() {
 
   useEffect(() => {
     if (!searchParams.get('query')) return;
-    fetchSearch(searchParams.get('query'), page).then(
-      ({ results, total_pages }) => {
+    fetchSearch(searchParams.get('query'), page)
+      .then(({ results, total_pages }) => {
         setResults(preResults => [...preResults, ...results]);
         setTotalPages(total_pages);
-      }
-    );
+      })
+      .catch(console.error(Error));
   }, [searchParams, page]);
 
   const onSubmit = form => {

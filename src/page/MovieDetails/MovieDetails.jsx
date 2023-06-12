@@ -13,7 +13,9 @@ function MovieDetailsPage() {
   const backLinkHref = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
-    gerMoviById(movieId).then(data => setData(data));
+    gerMoviById(movieId)
+      .then(data => setData(data))
+      .catch(console.error(Error));
   }, [movieId]);
 
   return (

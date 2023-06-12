@@ -10,7 +10,7 @@ function HomePage() {
   useEffect(() => {
     fetchTrending().then(({ results }) => {
       setResults(preResults => [...preResults, ...results]);
-    });
+    }).catch(console.error(Error))
   }, []);
 
   return (
