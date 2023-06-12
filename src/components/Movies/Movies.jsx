@@ -5,13 +5,15 @@ import { BsArrowRightCircleFill } from 'react-icons/bs';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { fetchSearch } from 'services/api';
 import { Ul, Label, Input, Submit, Container } from './Movies.styled';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams, useLocation } from 'react-router-dom';
 
 function Movies() {
   const [results, setResults] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation()
+
 
   useEffect(() => {
     if (!searchParams.get('query')) return;
@@ -63,7 +65,7 @@ function Movies() {
               }}
             >
               <Card.Title>{title}</Card.Title>
-              <Link to={`${id}`}>
+              <Link to={`${id}`} state={{ from: location }}>
                 <Button variant="primary">Movie Details</Button>
               </Link>
             </Card.Body>

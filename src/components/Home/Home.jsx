@@ -4,11 +4,11 @@ import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { fetchTrending } from 'services/api';
 import { Ul } from './Home.styled';
-import { Link } from 'react-router-dom';
+import { Link,useLocation } from 'react-router-dom';
 
 function Home() {
   const [results, setResults] = useState([]);
-
+  const location = useLocation()
   useEffect(() => {
     fetchTrending().then(({ results }) => {
       setResults(preResults => [...preResults, ...results]);
@@ -35,7 +35,7 @@ function Home() {
             }}
           >
             <Card.Title>{title}</Card.Title>
-            <Link to={`movies/${id}`}>
+            <Link to={`movies/${id}`} state={{ from: location }}>
               <Button variant="primary">Movie Details</Button>
             </Link>
           </Card.Body>

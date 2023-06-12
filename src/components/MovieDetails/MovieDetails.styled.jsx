@@ -16,3 +16,15 @@ export const Img = styled.img`
 export const Items = styled.div`
   width: 500px;
 `;
+export const BackLink = styled.div`
+display: block;
+text-align: start;
+padding: 15px;
+a {
+  text-decoration: none;
+&:hover{
+    color: orange;
+  }
+}
+
+`

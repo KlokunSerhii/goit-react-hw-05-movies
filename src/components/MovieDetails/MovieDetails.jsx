@@ -1,13 +1,17 @@
-import { useEffect, useState } from 'react';
-import { Outlet, useParams } from 'react-router-dom';
+import { useEffect, useState,useRef } from 'react';
+import { Outlet, useParams,useLocation, Link } from 'react-router-dom';
 import { fetchMoviId } from 'services/api';
-import { Container, Img, Items } from './MovieDetails.styled';
+import { Container, Img, Items,BackLink } from './MovieDetails.styled';
 import { Nav, Navbar } from 'react-bootstrap';
 import { StyledLink } from 'components/Layout/Layout.styled';
 
 function MovieDetails() {
   const [data, setData] = useState({});
   const { movieId } = useParams();
+  const location = useLocation();
+  const backLinkHref = useRef(location.state?.from ?? "/");
+
+
 
   useEffect(() => {
     fetchMoviId(movieId).then(data => setData(data));
@@ -15,6 +19,11 @@ function MovieDetails() {
 
   return (
     <>
+    <BackLink>
+      <Link to={backLinkHref.current}>Back</Link>
+      </BackLink>
+      
+      
       <Container>
         <Img
           src={
