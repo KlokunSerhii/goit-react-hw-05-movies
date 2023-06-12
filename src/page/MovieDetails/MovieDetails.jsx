@@ -19,13 +19,20 @@ function MovieDetailsPage() {
       .then(data => setData(data))
       .catch(<BsEraser />);
   }, [movieId]);
-
+  console.log(`url(${UrlImg(data.backdrop_path)})`);
   return (
     <>
       <BackLink>
         <Link to={backLinkHref.current}>Back</Link>
       </BackLink>
-      <Container>
+      <Container
+        style={{
+          backgroundImage: `url(${UrlImg(data.backdrop_path)})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
         <Img
           src={UrlImg(data.poster_path)}
           alt={data.original_name}
