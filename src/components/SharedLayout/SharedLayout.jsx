@@ -4,8 +4,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Outlet } from 'react-router-dom';
 import { StyledLink, Svg, Main } from './SharedLayout.styled';
-import { Suspense } from 'react';
-import Loader from 'components/Loader';
+// import { Suspense } from 'react';
+// import Loader from 'components/Loader';
 
 export const SharedLayout = () => {
   return (
@@ -24,9 +24,9 @@ export const SharedLayout = () => {
       </Navbar>
 
       <Main>
-        <Suspense fallback={<Loader />}>
+        {/* <Suspense fallback={<Loader />}> */}
         <Outlet />
-        </Suspense>
+        {/* </Suspense> */}
       </Main>
     </>
   );
