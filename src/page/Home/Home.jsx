@@ -3,7 +3,7 @@ import { fetchTrending } from 'services/api';
 import { Container, Title, Ul } from './Home.styled';
 import Gallery from '../../components/Gallery/Gallery';
 import { BsEraser } from 'react-icons/bs';
-function HomePage() {
+function Home() {
   const [results, setResults] = useState([]);
 
   useEffect(() => {
@@ -24,4 +24,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default Home;

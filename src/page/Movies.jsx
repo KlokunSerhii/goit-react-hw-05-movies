@@ -7,7 +7,7 @@ import Gallery from 'components/Gallery';
 import Form from 'components/Form';
 import { BsEraser } from 'react-icons/bs';
 
-function MoviesPage() {
+function Movies() {
   const [results, setResults] = useState([]);
   const [totalPages, setTotalPages] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
@@ -48,4 +48,4 @@ function MoviesPage() {
   );
 }
 
-export default MoviesPage;
+export default Movies;

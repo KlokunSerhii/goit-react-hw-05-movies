@@ -3,11 +3,11 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Outlet } from 'react-router-dom';
-import { StyledLink, Svg, Main } from './Layout.styled';
+import { StyledLink, Svg, Main } from './SharedLayout.styled';
 import { Suspense } from 'react';
-import Loader from 'components/Loader/Loader';
+import Loader from 'components/Loader';
 
-export const Layout = () => {
+export const SharedLayout = () => {
   return (
     <>
       <Navbar bg="dark" variant="dark">

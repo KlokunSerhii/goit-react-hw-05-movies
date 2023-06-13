@@ -3,12 +3,12 @@ import { Outlet, useParams, useLocation, Link } from 'react-router-dom';
 import { gerMoviById } from 'services/api';
 import { Container, Img, Items, BackLink } from './MovieDetails.styled';
 import { Nav, Navbar } from 'react-bootstrap';
-import { StyledLink } from 'components/Layout/Layout.styled';
+import { StyledLink } from 'components/SharedLayout/SharedLayout.styled';
 import { UrlImg, UrlBgImg } from '../../utils/UrlImg';
 import { BsEraser } from 'react-icons/bs';
-import Loader from 'components/Loader/Loader';
+import Loader from 'components/Loader';
 
-function MovieDetailsPage() {
+function MovieDetails() {
   const [data, setData] = useState({});
   const { movieId } = useParams();
   const location = useLocation();
@@ -70,4 +70,4 @@ function MovieDetailsPage() {
   );
 }
 
-export default MovieDetailsPage;
+export default MovieDetails;
