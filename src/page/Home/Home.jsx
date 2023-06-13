@@ -18,7 +18,7 @@ function Home() {
     <Container>
       <Title>The most popular movies today</Title>
       <Ul>
-        <Gallery results={results}/>
+        <Gallery results={results} />
       </Ul>
     </Container>
   );

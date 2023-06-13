@@ -18,7 +18,7 @@ export const SharedLayout = () => {
 
           <Nav className="me-auhref">
             <StyledLink to="/">Home</StyledLink>
-            <StyledLink to="movies">Movies</StyledLink>
+            <StyledLink to="/movies">Movies</StyledLink>
           </Nav>
         </Container>
       </Navbar>

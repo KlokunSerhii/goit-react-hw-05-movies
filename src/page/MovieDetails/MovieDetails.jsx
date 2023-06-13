@@ -58,8 +58,8 @@ function MovieDetails() {
       >
         <div>
           <Nav className="me-auhref">
-            <StyledLink to="cast">Cast</StyledLink>
-            <StyledLink to="reviews">Reviews</StyledLink>
+            <StyledLink to="/cast">Cast</StyledLink>
+            <StyledLink to="/reviews">Reviews</StyledLink>
           </Nav>
         </div>
       </Navbar>
