@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, Suspense } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Outlet, useParams, useLocation, Link } from 'react-router-dom';
 import { gerMoviById } from 'services/api';
 import { Container, Img, Items, BackLink } from './MovieDetails.styled';
@@ -6,7 +6,7 @@ import { Nav, Navbar } from 'react-bootstrap';
 import { StyledLink } from 'components/SharedLayout/SharedLayout.styled';
 import { UrlImg, UrlBgImg } from '../../utils/UrlImg';
 import { BsEraser } from 'react-icons/bs';
-import Loader from 'components/Loader';
+// import Loader from 'components/Loader';
 
 function MovieDetails() {
   const [data, setData] = useState({});
@@ -63,9 +63,9 @@ function MovieDetails() {
           </Nav>
         </div>
       </Navbar>
-      <Suspense fallback={<Loader />}>
-        <Outlet />
-      </Suspense>
+      {/* <Suspense fallback={<Loader />}> */}
+      <Outlet />
+      {/* </Suspense> */}
     </>
   );
 }
