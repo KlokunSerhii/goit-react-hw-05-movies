@@ -1,11 +1,13 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { UrlImg } from 'utils/UrlImg';
 import PropTypes from 'prop-types';
 
-function Gallery({ results, location }) {
+function Gallery({ results }) {
+  const location = useLocation();
+
   return (
     <>
       {results.map(({ title, poster_path, id }) => (
@@ -36,7 +38,6 @@ Gallery.propTypes = {
       poster_path: PropTypes.string.isRequired,
       id: PropTypes.number.isRequired,
     })
-  ),
-  location: PropTypes.object.isRequired,
+  )
 };
 export default Gallery;
