@@ -1,10 +1,10 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { StyledLink, Svg, Main } from './SharedLayout.styled';
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
+import { StyledLink, Svg, Main } from './SharedLayout.styled';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Loader from 'components/Loader';
 
 const SharedLayout = () => {

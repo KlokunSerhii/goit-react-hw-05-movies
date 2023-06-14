@@ -1,15 +1,16 @@
-import { useEffect, useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { fetchSearch } from 'services/api';
-import { Ul, Container } from '../Home/Home.styled';
+import { useEffect } from 'react';
+import { BsEraser } from 'react-icons/bs';
 import { useSearchParams } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { getMovieSearch } from 'services/api';
+import { Ul, Container } from '../Home/Home.styled';
 import Gallery from 'components/Gallery';
 import Form from 'components/Form';
-import { BsEraser } from 'react-icons/bs';
+import { useStateContext } from 'contex/StateContext';
 
 function Movies() {
-  const [results, setResults] = useState([]);
-  const [totalPages, setTotalPages] = useState('');
+  const { resultsSearch, setResultsSearch, totalPages, setTotalPages } =
+    useStateContext();
   const [searchParams, setSearchParams] = useSearchParams();
   const page = 1;
   const query = searchParams.get('query');
@@ -17,17 +18,17 @@ function Movies() {
 
   useEffect(() => {
     if (!query) return;
-    fetchSearch(query, currentPage)
+    getMovieSearch(query, currentPage)
       .then(({ results, total_pages }) => {
-        setResults(preResults => [...preResults, ...results]);
+        setResultsSearch(preResults => [...preResults, ...results]);
         setTotalPages(total_pages);
       })
       .catch(<BsEraser />);
-  }, [currentPage, query]);
+  }, [currentPage, query, setTotalPages, setResultsSearch]);
 
   const onSubmit = form => {
     setSearchParams({ query: form, page: String(page) });
-    setResults([]);
+    setResultsSearch([]);
   };
 
   const onClick = () => {
@@ -38,7 +39,7 @@ function Movies() {
     <Container>
       <Form onSubmit={onSubmit} />
       <Ul>
-        <Gallery results={results} />
+        <Gallery results={resultsSearch} />
       </Ul>
       {page < totalPages && <button onClick={onClick}> Load more</button>}
     </Container>

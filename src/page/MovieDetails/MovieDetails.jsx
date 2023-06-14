@@ -1,24 +1,25 @@
-import { useEffect, useState, useRef, Suspense } from 'react';
+import { useEffect, useRef, Suspense } from 'react';
 import { Outlet, useParams, useLocation, Link } from 'react-router-dom';
-import { gerMoviById } from 'services/api';
-import { Container, Img, Items, BackLink } from './MovieDetails.styled';
 import { Nav, Navbar } from 'react-bootstrap';
+import { BsEraser } from 'react-icons/bs';
+import { Container, Img, Items, BackLink } from './MovieDetails.styled';
+import { getMovieById } from 'services/api';
 import { StyledLink } from 'components/SharedLayout/SharedLayout.styled';
 import { UrlImg, UrlBgImg } from '../../utils/UrlImg';
-import { BsEraser } from 'react-icons/bs';
 import Loader from 'components/Loader';
+import { useStateContext } from 'contex/StateContext';
 
 function MovieDetails() {
-  const [data, setData] = useState({});
+  const { data, setData } = useStateContext();
   const { movieId } = useParams();
   const location = useLocation();
   const backLinkHref = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
-    gerMoviById(movieId)
+    getMovieById(movieId)
       .then(data => setData(data))
       .catch(<BsEraser />);
-  }, [movieId]);
+  }, [movieId, setData]);
   return (
     <>
       <BackLink>

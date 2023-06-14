@@ -1,19 +1,20 @@
-import { useEffect, useState } from 'react';
-import { fetchCast } from '../../services/api';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { List } from './Cast.staled';
 import Card from 'react-bootstrap/Card';
+import { getMovieCast } from '../../services/api';
+import { List } from './Cast.staled';
 import { Container } from '../../page/Home/Home.styled';
+import { useStateContext } from 'contex/StateContext';
 
 function Cast() {
-  const [casts, setCasts] = useState([]);
+  const { casts, setCasts } = useStateContext();
   const { movieId } = useParams();
 
   useEffect(() => {
-    fetchCast(movieId).then(({ cast }) => {
+    getMovieCast(movieId).then(({ cast }) => {
       setCasts(cast);
     });
-  }, [movieId]);
+  }, [movieId, setCasts]);
 
   return (
     <Container>

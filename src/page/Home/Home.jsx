@@ -1,18 +1,20 @@
-import { useEffect, useState } from 'react';
-import { fetchTrending } from 'services/api';
+import { useEffect } from 'react';
+import { BsEraser } from 'react-icons/bs';
+import { getMovieTrending } from 'services/api';
 import { Container, Title, Ul } from './Home.styled';
 import Gallery from '../../components/Gallery/Gallery';
-import { BsEraser } from 'react-icons/bs';
+import { useStateContext } from 'contex/StateContext';
+
 function Home() {
-  const [results, setResults] = useState([]);
+  const { results, setResults } = useStateContext();
 
   useEffect(() => {
-    fetchTrending()
+    getMovieTrending()
       .then(({ results }) => {
         setResults(preResults => [...preResults, ...results]);
       })
       .catch(<BsEraser />);
-  }, []);
+  }, [setResults]);
 
   return (
     <Container>

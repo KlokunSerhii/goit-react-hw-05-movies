@@ -1,6 +1,6 @@
 import { BsArrowRightCircleFill } from 'react-icons/bs';
-import { Label, Input, Submit } from './Form.styled';
 import PropTypes from 'prop-types';
+import { Label, Input, Submit } from './Form.styled';
 
 function Form({ onSubmit }) {
   const handlerSubmit = e => {
