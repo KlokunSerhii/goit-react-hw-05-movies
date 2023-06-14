@@ -7,7 +7,7 @@ import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 import Loader from 'components/Loader';
 
-export const SharedLayout = () => {
+const SharedLayout = () => {
   return (
     <>
       <Navbar bg="dark" variant="dark">
@@ -31,3 +31,4 @@ export const SharedLayout = () => {
     </>
   );
 };
+export default SharedLayout;
